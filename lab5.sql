@@ -8,7 +8,8 @@ where orders.cid = 'c006';
 select pid 
 from orders
 join customers on customers.cid = orders.cid
-where customers.city = 'Kyoto';
+where customers.city = 'Kyoto'
+ORDER BY pid DESC;
 
 --Show the names of customers who have never placed an order. Use a subquery. 
 select name
@@ -45,6 +46,8 @@ where agents.city = customers.city;
 
 
 --Show the name and city of customers who live in the city that makes the fewest different kinds of products. (Hint: Use count and group by on the Products table.)
-select customers.name, customers, city
-from customers
-join products on 
+--UNSURE
+select name, city, count(city) 
+from customer
+group by city
+where customers.city = products.city;
